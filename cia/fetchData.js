@@ -3,16 +3,16 @@ let = $accordion = document.getElementById("accordion");
 let ciaData = null;
 
 fetch(
-    "https://app.scrapinghub.com/api/v2/datasets/kdybI1E79Ww/download?format=json"
+  "https://app.scrapinghub.com/api/v2/datasets/kdybI1E79Ww/download?format=json"
 )
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        // Work with JSON data here
-        ciaData = data;
-        cards = ciaData.map(
-            (x, idx) => `
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    // Work with JSON data here
+    ciaData = data;
+    cards = ciaData.map(
+      (x, idx) => `
     <div class="card">
     <div class="card-header bg-dark" id="heading${idx}">
       <h2 class="mb-0">
@@ -44,11 +44,11 @@ fetch(
     </div>
   </div>
     `
-        );
-        for (i = 0; i < cards.length; i++) {
-            $accordion.innerHTML += cards[i];
-        }
-    })
-    .catch((err) => {
-        // Do something for an error here
-    });
+    );
+    for (i = 0; i < cards.length; i++) {
+      $accordion.innerHTML += cards[i];
+    }
+  })
+  .catch((err) => {
+    // Do something for an error here
+  });
